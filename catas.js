@@ -29,3 +29,5 @@ function multiples(s1,s2,s3){
   arr.shift();
   return arr;
 }
+
+multiples(26, 10, 3548);
