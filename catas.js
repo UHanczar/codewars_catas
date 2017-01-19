@@ -30,4 +30,14 @@ function multiples(s1,s2,s3){
   return arr;
 }
 
-multiples(26, 10, 3548);
+// multiples(26, 10, 3548);
+
+
+// inverses slice array
+function inverseSlice(items, a, b) {
+  let secArg = b - a;
+  items.splice(a, secArg);
+  return items;
+}
+
+inverseSlice([12, 14, 63, 72, 55, 24], 2, 4);
