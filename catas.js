@@ -40,4 +40,13 @@ function inverseSlice(items, a, b) {
   return items;
 }
 
-inverseSlice([12, 14, 63, 72, 55, 24], 2, 4);
+//inverseSlice([12, 14, 63, 72, 55, 24], 2, 4);
+
+
+// even or odd
+function even_or_odd(number) {
+  if(number % 2 === 0) return 'Even';
+  else return 'Odd';
+}
+
+// even_or_odd(4);
