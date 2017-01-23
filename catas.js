@@ -146,3 +146,11 @@ function remove(s){
 }
 
 //remove("Hi!fsa sfa! fja;f!");
+
+// function takes temperature in degrees Celsius and returns the equivalent temperature in degrees Rømer
+function celsiusToRomer(temp) {
+  temp = temp * 0.52500 + 7.50;
+  return temp;
+}
+
+// celsiusToRomer(24)
