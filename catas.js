@@ -145,6 +145,55 @@ function remove(s){
   return res;
 }
 
+// removes all excl. marks
+function removeTwo(s){
+  // let res = '';
+  // let newS = s.replace(/!/g, '');
+  // console.log(newS);
+  // res = newS + '!';
+  // return res;
+
+  return s.replace(/!/g, '') + '!';
+}
+
+// removeTwo("Hi!!!");
+function removeFromEnd(s){
+  // let res = '';
+  // let newS = s.replace(/!/g, '');
+  // console.log(newS);
+  // res = newS + '!';
+  // return res;
+
+  return s.replace(/(\b!+)|(!*$)/g, '');
+}
+
+// removeFromEnd("!Hi! !Hi!!!");
+
+
+// change words & firCaps letter;
+function myReplace(str, before, after) {
+  if(before.charCodeAt(0) > 96)  {
+    return str.replace(before, after);
+  } else {
+    let firstLetter = after.slice(0,1);
+    //console.log(firstLetter);
+
+    let charCodeOfLetter = after.charCodeAt(0) - 32;
+    let numbFromCharCode = String.fromCharCode(charCodeOfLetter);
+
+    console.log(firstLetter, charCodeOfLetter, numbFromCharCode);
+    let afterInArray = after.split('');
+    afterInArray.shift();
+    afterInArray.unshift(numbFromCharCode);
+    let replaceAfter = afterInArray.join('');
+    console.log(replaceAfter);
+    return str.replace(before, replaceAfter);
+  }
+
+}
+
+// myReplace("A quick brown fox Jumped over the lazy dog", "Jumped", "leaped");
+
 //remove("Hi!fsa sfa! fja;f!");
 
 // function takes temperature in degrees Celsius and returns the equivalent temperature in degrees Rømer
@@ -154,3 +203,25 @@ function celsiusToRomer(temp) {
 }
 
 // celsiusToRomer(24)
+
+
+// reverse first & last array elements
+function firstReverseTry(arr) {
+  //coding and coding..
+  if (!arr.length) {
+    return [];
+  } else if (arr.length === 1) {
+    return arr;
+  } else {
+    let firstElement = arr[0];
+    let lastElement = arr[arr.length - 1];
+    arr.shift();
+    arr.pop();
+    arr.unshift(lastElement);
+    arr.push(firstElement);
+
+    return arr;
+  }
+}
+
+// firstReverseTry([23, 54, 12, 3, 4, 56, 23, 12, 5, 324]);
