@@ -225,3 +225,54 @@ function firstReverseTry(arr) {
 }
 
 // firstReverseTry([23, 54, 12, 3, 4, 56, 23, 12, 5, 324]);
+
+// takes an array of integers as an argument and returns the median of those integers
+function median(array) {
+//code here
+  array.sort((a, b) => a > b);
+  if(array.length % 2 === 1) {
+    let i = Math.floor(array.length / 2);
+    let result = array[i];
+    return result;
+  } else {
+    let firstNumber = array[(array.length / 2) - 1];
+    let secondNumber = array[array.length / 2];
+    let result = (firstNumber + secondNumber) / 2;
+    return result;
+  }
+}
+
+// median([33,99,100,30,29, 50]);
+
+
+// return sum of numbers from arr.min to arr.max;
+function sumAll(arr) {
+  let max = Math.max.apply(0, arr);
+  let min = Math.min.apply(0, arr);
+  let newArr = [];
+  for(let i = min; i <= max; i++) {
+    newArr.push(i);
+  }
+  let res = newArr.reduce((min, max) => min += max, 0);
+  return res;
+}
+// sumAll([1, 4]);
+
+
+// arr return sum of pos. numbers and length of neg. numb.
+function ret(input) {
+  input.filter((x) => x > 0);
+  if(input.length === 0) {
+    return [];
+  } else {
+    let pos = input.filter((x) => x >= 0);
+    let neg = input.filter((x) => x < 0);
+    let sumPos = pos.length;
+    let sumNeg = neg.reduce((start, counter) => start += counter);
+    let res = [];
+    res.push(sumPos);
+    res.push(sumNeg);
+    return res;
+  }
+}
+// ret([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]);
