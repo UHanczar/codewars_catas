@@ -276,3 +276,27 @@ function ret(input) {
   }
 }
 // ret([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]);
+
+// delete duplicated letters in a string, when they coupled
+function removeDuplicates(str) {
+  return str.split('').filter((item,i,array) => item !== array[i-1]).join('');
+}
+// removeDuplicates('Hellllllllllo');
+
+
+// TODO: Make some stuff more good here + adding tecting
+function howManyLightsabersDoYouOwn(name) {
+  if(name === 'Zach') {
+    return 18;
+  } else {
+    return 0;
+  }
+}
+
+//howManyLightsabersDoYouOwn('Zach');
+describe("Solution", function(){
+  it("Example tests", function(){
+    Test.assertEquals(howManyLightsabersDoYouOwn('Zach'), 18);
+    Test.assertEquals(howManyLightsabersDoYouOwn('anyone else'), 0);
+  });
+});
