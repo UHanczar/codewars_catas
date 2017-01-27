@@ -300,3 +300,45 @@ describe("Solution", function(){
     Test.assertEquals(howManyLightsabersDoYouOwn('anyone else'), 0);
   });
 });
+
+
+// function transforms the a string of roman numeral into an integer
+function solution(roman){
+  // complete the solution by transforming the
+  // string roman numeral into an integer
+  roman = roman.toUpperCase().split('');
+  console.log(roman);
+  let romanNumerals = {I:1,V:5,X:10,L:50,C:100,D:500,M:1000};
+  let num = 0;
+  let val = 0;
+  while (roman.length) {
+    //console.log(lookup[roman[0]]);
+    val = romanNumerals[roman.shift()];
+    console.log(val);
+
+    num += val * (val < romanNumerals[roman[0]] ? -1 : 1);
+
+  }
+  return num;
+}
+
+// solution('XXXVI');
+
+// Convert a number into a Roman Numeral
+function romanize(num) {
+  let integers = {M:1000,CM:900,D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1};
+  let romanNum = '';
+  let i;
+  for(i in integers) {
+    // console.log(i);
+    while(num >= integers[i] ) {
+      console.log(integers[i]);
+      romanNum += i;
+      console.log(romanNum);
+      num -= integers[i];
+    }
+  }
+  return romanNum;
+}
+
+// romanize(31);
