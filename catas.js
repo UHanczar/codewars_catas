@@ -342,3 +342,66 @@ function romanize(num) {
 }
 
 // romanize(31);
+
+// finds and returns source in collection
+function whatIsInAName(collection, source) {
+  // "What's in a name? that which we call a rose
+  // By any other name would smell as sweet.”
+  // -- by William Shakespeare, Romeo and Juliet
+  var sourceKey = Object.keys(source);
+
+  // filter the collection
+  return collection.filter(function (obj) {
+    for(var i = 0; i < sourceKey.length; i++) {
+      if(!obj.hasOwnProperty(sourceKey[i]) || obj[sourceKey[i]] !== source[sourceKey[i]]) {
+
+        return false;
+      }
+    }
+    return true;
+  });
+}
+
+// whatIsInAName([{ "a": 1, "b": 2, "c": 2 }, { "a": 1, "c": 2 }, { "a": 1, "b": 2 }], { "a": 1, "c": 2 });
+
+
+// pig latin from FreeCodeCamp
+function translatePigLatin(str) {
+  let consonants = ['b', 'c', 'd', 'f','g','h','j','k','l','m','p','q','r','s','t','v','w','x','y','z'];
+  // console.log(consonants);
+  let spl = str.split('');
+  let result = '';
+  let counter = 0;
+  console.log(spl);
+  consonants.filter(consonant => {
+    if(consonant === spl[0]) {
+      let r = spl.shift(spl[0]);
+      spl.push(r);
+      counter++;
+      consonants.filter(consonant => {
+        if(consonant === spl[0]) {
+          let r = spl.shift(spl[0]);
+          spl.push(r);
+          counter++;
+        }
+      });
+
+    }
+  });
+
+  if(counter > 0 ) {
+    result = spl.join('') + 'ay';
+  } else {
+    result = spl.join('') + 'way';
+  }
+
+
+
+
+  return result;
+}
+
+// translatePigLatin("glove");
+
+
+
