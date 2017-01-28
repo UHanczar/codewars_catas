@@ -403,5 +403,19 @@ function translatePigLatin(str) {
 
 // translatePigLatin("glove");
 
+//return the total number of smiling faces in the array
+function countSmileys(arr) {
+  let c = /:[-]?\)|:[~]?\)|;[-]?D|;[~]?D|:[-]?D|:[~]?D|;[-]?\)|;[~]?\)/g;
+  let counter = 0;
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i].match(c)) {
+      counter++;
+    }
+  }
+  return counter;
+}
+
+// countSmileys([':D',':~)',';~D',':)'])
+
 
 
