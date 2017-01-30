@@ -447,5 +447,45 @@ function lowestTemp(t) {
 }
 // lowestTemp('18 27 -42 16 17 -43 36 45 -25 -24 19 -14');
 
+// find count of office staff;
+function boredom(staff){
+  let counter = 0;
+  Object.keys(staff).map(x => {
+    // console.log(staff[x]);
+    if(staff[x] === 'accounts') {
+      counter += 1;
+    } else if(staff[x] === 'finance') {
+      counter += 2;
+    } else if(staff[x] === 'canteen') {
+      counter += 10;
+    } else if(staff[x] === 'regulation') {
+      counter += 3;
+    } else if(staff[x] === 'trading') {
+      counter += 6;
+    } else if(staff[x] === 'change') {
+      counter += 6;
+    } else if(staff[x] === 'IS') {
+      counter += 8;
+    } else if(staff[x] === 'retail') {
+      counter += 5;
+    } else if(staff[x] === 'cleaning') {
+      counter += 4;
+    } else if(staff[x] === 'pissing about') {
+      counter += 25;
+    }
+  });
 
+  console.log(counter);
+  if(counter <= 80) {
+    return 'kill me now'
+  } else if(counter > 80 && counter < 100) {
+    return  'i can handle this';
+  } else if(counter >= 100) {
+    return 'party time!!';
+  }
 
+}
+// boredom({tim: 'change', jim: 'accounts',
+//   randy: 'canteen', sandy: 'change', andy: 'change', katie: 'IS',
+//   laura: 'change', saajid: 'IS', alex: 'trading', john: 'accounts',
+//   mr: 'finance' });
