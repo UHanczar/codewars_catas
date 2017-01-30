@@ -425,4 +425,27 @@ function last(list){
 // last([1,2,3,4,5]);
 
 
+// return the lowest value or None/null/Nothing if the string is empty.
+function lowestTemp(t) {
+  // lowest temperature
+  if(!t.length) {
+    return null;
+  }
+  let arr = t.split(' ');
+  console.log(arr);
+  let arrayToNum = arr.map(x => parseFloat(x));
+  arrayToNum.sort(function(a,b) {
+    if(a > b) {
+      return 1;
+    } else {
+      return -1;
+    }
+  })
+
+  let res = arrayToNum[0];
+  return res;
+}
+// lowestTemp('18 27 -42 16 17 -43 36 45 -25 -24 19 -14');
+
+
 
