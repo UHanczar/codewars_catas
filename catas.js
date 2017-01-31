@@ -489,3 +489,92 @@ function boredom(staff){
 //   randy: 'canteen', sandy: 'change', andy: 'change', katie: 'IS',
 //   laura: 'change', saajid: 'IS', alex: 'trading', john: 'accounts',
 //   mr: 'finance' });
+
+// find box canteens capacity
+function boxCapacity(length, width, height) {
+  // return ; //code here
+  let result = (parseInt(length * 12 / 16)) * (parseInt(width * 12 / 16)) * (parseInt(height * 12 / 16));
+  return result;
+}
+// boxCapacity(32, 64, 16);
+
+// reverses string
+function solution(str){
+  let arrFromStr = str.split('');
+  let res = arrFromStr.reverse().join('');
+  return res;
+}
+
+// solution('world');
+
+// check if number is sqrt and change it
+function squareOrSquareRoot(array) {
+  let res = [];
+  let num;
+  array.map(x => {
+    num = Math.sqrt(x);
+    console.log(num);
+    if(Number.isInteger(num)) {
+      res.push(num);
+    } else {
+      num = x * x;
+      return res.push(num);
+    }
+  });
+
+  return res;
+}
+
+squareOrSquareRoot([ 2, 9, 3, 49, 4, 1 ]);
+
+// counter numbers except that with 5
+function dontGiveMeFive(start, end) {
+  let counter = 0;
+  for(let i = start; i <= end; i++) {
+    console.log(i);
+    if(i === 5 || i % 5 === 0 && (i / 5) % 2 !== 0 || i < 60 && i > 49) {
+      counter += 0;
+    } else {
+
+      counter++;
+    }
+
+  }
+  return counter;
+}
+
+// dontGiveMeFive(1,9)
+
+// return result of mathematical operation
+function basicOp(operation, value1, value2)
+{
+  // Code
+  let result;
+  if(operation === '+') {
+    result = value1 + value2;
+  } else if(operation === '-') {
+    result = value1 - value2;
+  } if(operation === '*') {
+  result = value1 * value2;
+} if(operation === '/') {
+  result = value1 / value2;
+}
+
+  return result;
+}
+
+// basicOp('+', 4, 7);
+
+// return cum of sqw of array numbers
+function squareSum(numbers){
+  return numbers.map(x => Math.pow(x, 2)).reduce((counter, x) => counter += x, 0);
+}
+
+// squareSum([1, 2, 2]);
+
+// return sum of positive numbers of array
+function positiveSum(arr) {
+  return arr.filter(x => x > 0).reduce((counter, x) => counter += x, 0)
+}
+
+// positiveSum([1,2,3,4,5]);
