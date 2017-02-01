@@ -578,3 +578,18 @@ function positiveSum(arr) {
 }
 
 // positiveSum([1,2,3,4,5]);
+
+
+// takes binary number and returns integer
+const binaryArrayToNumber = arr => {
+  // your code
+  let strFomArr = arr.join('');
+  console.log(strFomArr);
+  let res = parseInt(strFomArr,2);
+
+  return res;
+};
+
+
+// binaryArrayToNumber([0,0,0,1]);
+
