@@ -34,4 +34,28 @@ const sequenceSum = (begin, end, step) => {
   return counter;
 };
 
-sequenceSum(2, 6, 2);
+// sequenceSum(2, 6, 2);
+
+// returns if ticket is lucky?
+function isLucky(ticket) {
+  console.log(ticket);
+  let firstPart = '';
+  let secondPart = '';
+  let counter = 0;
+  if(!ticket.match(/\w{6}/g)) {
+    console.log('wrong');
+    counter = 1;
+  }
+  console.log('true');
+  firstPart = ticket.slice(0,3).split('').reduce((counter, i) => counter += parseInt(i), 0);
+  secondPart = ticket.slice(3).split('').reduce((counter, i) => counter += parseInt(i), 0);
+  console.log(firstPart, secondPart);
+
+  if(firstPart === secondPart && counter !== 1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// isLucky('123321');
