@@ -59,3 +59,38 @@ function isLucky(ticket) {
 }
 
 // isLucky('123321');
+
+// find, if num in arr % 2 === 0 and return it
+function findElement(arr, func) {
+  let num = arr.filter(x => x % 2 === 0);
+  let res = num[0];
+  if(func(res)) {
+    return res;
+  } else {
+    return undefined;
+  }
+
+}
+
+// findElement([1, 2, 3, 4], function(num){ return num % 2 === 0; });
+
+
+// Flatten a nested array
+function steamrollArray(arr) {
+  // I'm a steamroller, baby
+  let res =arr.toString().split(',').filter(x => x !== '').map(x => {
+    let n = parseInt(x);
+    if(parseInt(x)) {
+      return n;
+    } else if(x == '[object Object]') {
+      return {};
+    } else {
+      return x;
+    }
+
+  });
+
+  return res;
+}
+
+// steamrollArray([1, {}, [3, [[4]]]]);
