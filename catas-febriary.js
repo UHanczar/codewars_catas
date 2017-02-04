@@ -94,3 +94,25 @@ function steamrollArray(arr) {
 }
 
 // steamrollArray([1, {}, [3, [[4]]]]);
+
+
+// find square of arrow triangle
+function arrowArea(a,b) {
+  // your code
+  // your code
+  let res = (a * b) / 2 / 2;
+  return parseFloat(res.toFixed(2));
+}
+
+// arrowArea(4,2);
+
+
+// calculate number of seats in theater
+function seatsInTheater(nCols, nRows, col, row) {
+  //coding and coding
+  let res = (nCols - (col - 1)) * (nRows - row);
+  return res;
+
+}
+
+// seatsInTheater(16,11,5,3);
