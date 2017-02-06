@@ -180,3 +180,19 @@ function createArrayOfTiers(num) {
 }
 
 // createArrayOfTiers(420);
+
+// Given the array shuffled, consisting of elements a1, a2, ..., and their sumvalue in random order, return the sorted array of original elements a1, a2,... .
+function shuffledArray(shuffled) {
+  //coding and coding..
+
+  let sortedArr = shuffled.sort((a, b) => a < b ? -1 : 1);
+  console.log(sortedArr);
+  let sum = sortedArr.reduce((counter, x) => counter += x) / 2;
+  console.log(sum);
+  let delNum = sortedArr.indexOf(sum);
+  sortedArr.splice(delNum, 1);
+
+  return sortedArr;
+}
+
+// shuffledArray([208,178,-78,191,-157,-9,-41,181,86,-6,9,-200]);
