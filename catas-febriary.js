@@ -165,3 +165,18 @@ function partlist(arr) {
 
 //receiving 'Hello, World' not from String
 const helloWorld = () => String.fromCharCode(72, 101, 108, 108, 111, 44, 32, 87, 111, 114, 108, 100, 33);
+
+
+// create array of length
+function createArrayOfTiers(num) {
+  num = num.toString();
+  let res = [];
+
+  for(let i = 1; i <= num.length; i++) {
+    res.push(num.substring(0, i));
+  }
+
+  return res;
+}
+
+// createArrayOfTiers(420);
