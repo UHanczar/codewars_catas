@@ -196,3 +196,26 @@ function shuffledArray(shuffled) {
 }
 
 // shuffledArray([208,178,-78,191,-157,-9,-41,181,86,-6,9,-200]);
+
+
+// return sum of number digits
+function digital_root(n) {
+  // ...
+  let res;
+  let str = n.toString();
+  res = str.split('');
+  function toRoot(resString) {
+    return resString.reduce((counter, x) => counter += parseInt(x), 0).toString();
+  }
+
+  while(res.length > 1) {
+    console.log(res);
+    res = toRoot(res);
+    res = res.split('');
+  }
+  res = parseInt(res.toString());
+
+  return res;
+}
+
+// digital_root(195);
