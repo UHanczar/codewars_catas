@@ -219,3 +219,22 @@ function digital_root(n) {
 }
 
 // digital_root(195);
+
+
+// make camelCase from string
+String.prototype.camelCase=function(){
+  //your code here
+  let camelLetters = this.split(' ').map(x => {
+    return x.slice(0,1).toUpperCase();
+  });
+
+  let res = this.split(' ').map((x, i) => {
+    let splArr = x.split('');
+    splArr.splice(0,1,camelLetters[i]);
+    let camelArr = splArr.join('');
+    return camelArr;
+  });
+  return res.join('');
+}
+
+//"test case".camelCase();
