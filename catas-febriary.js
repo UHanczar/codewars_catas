@@ -238,3 +238,14 @@ String.prototype.camelCase=function(){
 }
 
 //"test case".camelCase();
+
+// invert numbers
+function invert(array) {
+  if(!array.length) {
+    return [];
+  }
+
+  return array.map(x => x > 0 ? x - (x * 2) : x + (-x * 2));
+}
+
+invert([1,-2,3,-4,5]);
