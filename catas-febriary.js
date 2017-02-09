@@ -248,4 +248,36 @@ function invert(array) {
   return array.map(x => x > 0 ? x - (x * 2) : x + (-x * 2));
 }
 
-invert([1,-2,3,-4,5]);
+// invert([1,-2,3,-4,5]);
+
+// mix letters except first & last one in words, more than 4 characters.
+let string = `According to a researcher at Cambridge University, it doesn't matter in what order the letters in a word are, the only important thing is that the first and last letter be at the right place. The rest can be a total mess and you can still read it without problem. This is because the human mind does not read every letter by itself but the word as a whole.`;
+
+function jumble(string){
+  let replaceCharString  = string.replace(/\./g, ' .').replace(/,/g, ' ,').replace(/\?/g, ' ?').replace(/!/g, ' !').split(' ');
+  let res = replaceCharString.map(x => {
+    //console.log(x);
+    if(x.length === 4 ) {
+      let firtsLetter = x[0];
+      let lastLetter = x[x.length - 1];
+      let trankWord = x.split('').filter(x => x !== '.').join('').slice(1, 3).split('').reverse().join('');
+      let word = firtsLetter + trankWord + lastLetter;
+      return word;
+    } else if(x.length > 5) {
+
+      let firtsLetter = x[0];
+      let lastLetter = x[x.length - 1];
+      let trankWord = x.split('').filter(x => x !== '.').join('').slice(1, -1).split('').sort().join('');
+      let word = firtsLetter + trankWord + lastLetter;
+      //console.log(firtsLetter, lastLetter);
+      //console.log(b,x, word);
+      //console.log(d);
+      return word;
+    } else {
+      return x;
+    }
+  });
+  return res.join(' ').replace(/\s\./g, '.').replace(/ ,/g, ',').replace(/\s\?/g, '?').replace(/\s!/g, '!');
+}
+
+// jumble(string);
