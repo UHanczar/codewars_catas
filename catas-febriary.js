@@ -281,3 +281,68 @@ function jumble(string){
 }
 
 // jumble(string);
+
+
+// bubble sorting
+var bubbleSort = nums => {
+  let swapped;
+  do {
+    swapped = false;
+    for(let i = 0; i < nums.length; i++) {
+      if(nums[i] > nums[i+1]) {
+        let temp = nums[i];
+        nums[i] = nums[i+1];
+        nums[i+1] = temp;
+        swapped = true;
+      }
+    }
+  } while(swapped);
+  return nums;
+};
+
+
+// bubbleSort([10,5,3,8,2,6,4,7,9,1]);
+
+// replace nth character in string
+function replaceNth(text, n, oldValue, newValue) {
+  let counter = 0;
+  let arr = text.split('');
+  //console.log(arr);
+  let res = arr.map(x => {
+    if(x === oldValue) {
+      counter++;
+      if(counter % n === 0) {
+        console.log(x);
+        return newValue;
+      } else {
+        return x;
+      }
+    } else {
+      return x;
+    }
+  });
+
+  return res.join('');
+}
+
+// replaceNth("Vader said: No, I am your father!", 2, 'a', 'o');
+
+
+// return average of two array numbers
+function averages(numbers) {
+  let res = [];
+  console.log(numbers);
+  if( numbers == null || numbers.length < 2) {
+    return [];
+  }
+
+  for(let i = 0; i < numbers.length - 1; i++) {
+    let newNum = (numbers[i] + numbers[i+1]) / 2;
+    res.push(newNum);
+  }
+  return res;
+
+}
+
+
+// averages([1, 3, 5, 1, -10]);
