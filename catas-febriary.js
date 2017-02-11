@@ -346,3 +346,23 @@ function averages(numbers) {
 
 
 // averages([1, 3, 5, 1, -10]);
+
+
+// find missing letter in array
+function findMissingLetter(array) {
+  let res;
+  let counter = array[0].charCodeAt();
+
+  for(let i = 0; i < array.length; i++) {
+    if(array[i].charCodeAt() === counter) {
+      counter++;
+    } else {
+      console.log(counter);
+      res = String.fromCharCode(counter);
+    }
+  }
+
+  return res;
+}
+
+// findMissingLetter(['a','b','c','d','f']);
