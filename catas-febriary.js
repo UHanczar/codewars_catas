@@ -284,11 +284,13 @@ function jumble(string){
 
 
 // bubble sorting
-var bubbleSort = nums => {
+const bubbleSort = nums => {
+  let counter = 0;
   let swapped;
   do {
     swapped = false;
     for(let i = 0; i < nums.length; i++) {
+      counter++;
       if(nums[i] > nums[i+1]) {
         let temp = nums[i];
         nums[i] = nums[i+1];
@@ -297,6 +299,7 @@ var bubbleSort = nums => {
       }
     }
   } while(swapped);
+  console.log(counter);
   return nums;
 };
 
@@ -366,3 +369,85 @@ function findMissingLetter(array) {
 }
 
 // findMissingLetter(['a','b','c','d','f']);
+
+
+// insertion sort
+let insertionSort = nums => {
+  let counter = 0;
+  for (let i = 1; i < nums.length; i++) {
+    console.log('i loop: ' + nums[i]);
+    for (let j = 0; j < i; j++) {
+      counter++;
+      //console.log(nums[j]);
+      if (nums[i] < nums[j]) {
+        let spliced = nums.splice(i, 1);
+        console.log(spliced);
+        nums.splice(j, 0, spliced[0]);
+        console.log(nums);
+      }
+    }
+  }
+  console.log(counter);
+  return nums;
+};
+
+// insertionSort([10,5,3,8,2,6,4,7,9,1]);
+
+
+// remove spaces from strings
+function noSpace(x){
+  return x.match(/[^\s]/g).join('');
+}
+
+// noSpace('8 j 8   mBliB8g  imjB8B8  jl  B');
+
+
+
+function vowelShift(text, n) {
+  let res;
+  console.log(n);
+  if(!text) {
+    return text;
+  }
+  let arr = text.split(''); // arr
+  let vowelRes = []; // res;
+  //console.log(arr);
+  arr.map((x, i) => {
+    if(x === 'a' || x === 'e' || x === 'i' || x === 'o' || x === 'u' || x === 'A' || x === 'E' || x === 'I' || x === 'O' || x === 'U') {
+      vowelRes.push([x, i]);
+    }
+  });
+
+  if(n > vowelRes.length || n < 0) {
+    n = n % vowelRes.length;
+  }
+  console.log(n);
+
+  if(!vowelRes.length) {
+    return text;
+  }
+
+  console.log(res);
+
+  let resForSplice = Array.from(vowelRes);
+  let firstPart = resForSplice.splice(n, resForSplice.length);
+  let newRes = firstPart.concat(resForSplice);
+  console.log(newRes);
+
+  for(let i = 0; i < arr.length; i++) {
+    //console.log(arr[i], i);
+    for(let j = 0; j < newRes.length; j++) {
+      //console.log(newRes[j][1]);
+      if(i === newRes[j][1]) {
+        //console.log(arr[i], newRes[j][0], res);
+        arr.splice(i, 1, vowelRes[j][0]);
+      }
+    }
+  }
+
+  res = arr.join('');
+  return res;
+}
+
+
+// vowelShift('This is a beautiful day', 3)
