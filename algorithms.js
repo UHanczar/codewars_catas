@@ -44,3 +44,45 @@ let insertionSort = nums => {
 
 // insertionSort([10,5,3,8,2,6,4,7,9,1]);
 
+// merge sort
+const mergeSort = nums => {
+  if(nums.length < 2) {
+    return nums;
+  }
+
+  const length = nums.length;
+  const middle = Math.floor(length / 2);
+  const leftPart = nums.slice(0, middle);
+  const rightPart = nums.slice(middle, length);
+
+  console.log({leftPart, rightPart});
+  return merge(mergeSort(leftPart), mergeSort(rightPart));
+};
+
+const merge = (left, right) => {
+  const res = [];
+
+  while(left.length && right.length) {
+    if(left[0] <= right[0]) {
+      res.push(left.shift());
+    } else {
+      res.push(right.shift());
+    }
+  }
+
+  while(left.length) {
+    res.push(left.shift());
+  }
+
+  while(right.length) {
+    res.push(right.shift());
+  }
+
+  //console.log('ResConcat: ' + res.concat(left, right));
+  console.log('ResConcaES6: ' + [...res, ...left, ...right]);
+
+  //console.log(res);
+  return res;
+};
+
+// mergeSort([10,5,3,8,2,6,4,7,9,1]);

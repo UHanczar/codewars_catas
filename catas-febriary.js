@@ -402,7 +402,7 @@ function noSpace(x){
 // noSpace('8 j 8   mBliB8g  imjB8B8  jl  B');
 
 
-
+// function shifts vowels according to n
 function vowelShift(text, n) {
   let res;
   console.log(n);
@@ -448,6 +448,25 @@ function vowelShift(text, n) {
   res = arr.join('');
   return res;
 }
+
+
+
+// Convert integers given as string into ASCII uppercase letters
+function convert(number){
+  // ...Convert integers given as string into ASCII uppercase letters...
+  let arr = number.split('');
+  let arrForDoubles = [];
+  let res = [];
+  for(let i = 0; i < arr.length-1; i+=2) {
+    let tempNum = arr[i] + arr[i+1];
+    arrForDoubles.push(tempNum);
+  }
+
+  res = arrForDoubles.map(x => x = String.fromCharCode(x)).join('');
+  return res;
+}
+
+// convert("656667");
 
 
 // vowelShift('This is a beautiful day', 3)
