@@ -449,7 +449,7 @@ function vowelShift(text, n) {
   return res;
 }
 
-
+// vowelShift('This is a beautiful day', 3);
 
 // Convert integers given as string into ASCII uppercase letters
 function convert(number){
@@ -468,5 +468,21 @@ function convert(number){
 
 // convert("656667");
 
+// Sum all the numbers of the array except first and last
+function sumArray(array) {
 
-// vowelShift('This is a beautiful day', 3)
+  if(!array) {
+    return 0;
+  }
+  array.sort((a, b) => {
+    if(a > b) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+  let res = array.splice(1, array.length - 2);
+  return res.reduce((counter, x) => counter+= x, 0);
+}
+
+// sumArray([ 6, 2, 1, 8, 10 ]);
