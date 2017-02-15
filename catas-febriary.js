@@ -486,3 +486,57 @@ function sumArray(array) {
 }
 
 // sumArray([ 6, 2, 1, 8, 10 ]);
+
+
+// increment number in string or + 1
+function incrementString (strng) {
+  // return incrementedString
+  let res;
+  let counter = 0;
+  let numsToAdd;
+  let arr = strng.split('');
+  let arrFromNums = arr.filter(x => !isNaN(x)).join('');
+  // console.log(arrFromNums);
+  if(!arrFromNums.length) {
+    res = arr.join('') + 1;
+    return res;
+  } else {
+    for(let i = 0; i < arrFromNums.length; i++) {
+      if(arrFromNums[i] === '0') {
+        counter++;
+      } else {
+        break;
+      }
+    }
+
+    if(counter > 0) {
+      numsToAdd = (parseInt(arrFromNums) + 1).toString();
+
+      if(arrFromNums.length > numsToAdd.length) {
+        let difInLength = arrFromNums.length - numsToAdd.length;
+        // console.log(difInLength);
+        let nullPart = new Array(difInLength).fill('0');
+        nullPart = nullPart.concat(numsToAdd).join('');
+        // console.log(nullPart);
+        res = arr.splice(0, arr.length - arrFromNums.length).concat(nullPart).join('')
+        return res;
+      }
+
+      res = arr.splice(0, arr.length - arrFromNums.length).concat(numsToAdd).join('');
+      // console.log(numsToAdd);
+      // console.log(counter);
+
+
+      return res;
+    }
+
+    numsToAdd = (parseInt(arrFromNums) + 1).toString();
+    res = arr.splice(0, arr.length - arrFromNums.length).concat(numsToAdd).join('');
+    // console.log(numsToAdd);
+    // console.log(counter);
+    return res;
+
+  }
+}
+
+// incrementString ('hello099');
