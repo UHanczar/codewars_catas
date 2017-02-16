@@ -540,3 +540,37 @@ function incrementString (strng) {
 }
 
 // incrementString ('hello099');
+
+//simple filtering for even nums
+function getEvenNumbers(numbersArray){
+  // filter out the odd numbers
+  return numbersArray.filter(x => x % 2 === 0);
+}
+// getEvenNumbers([2,4,5,6]);
+
+// returns the sum of all the multiples of 3 or 5 below the number passed in
+function solution(number){
+  let res = 0;
+  for(let i = 1; i < number; i++) {
+    if(i % 5 === 0 && i % 3 !== 0 || i % 3 === 0) {
+      res += i;
+    }
+  }
+  return res;
+}
+
+// solution(20);
+
+
+//simple function sorts array and returnd two biggest nums
+function twoOldestAges(ages){
+  return ages.sort((a,b) => {
+    if(a > b) {
+      return 1;
+    } else {
+      return -1;
+    }
+  }).splice(ages.length - 2, ages.length);
+}
+
+// twoOldestAges([1, 2, 10, 8]);
