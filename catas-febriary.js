@@ -574,3 +574,71 @@ function twoOldestAges(ages){
 }
 
 // twoOldestAges([1, 2, 10, 8]);
+
+
+// returns missing length of array
+function getLengthOfMissingArray(arrayOfArrays) {
+  console.log(arrayOfArrays);
+  let missingGap = 0;
+  if(!arrayOfArrays || arrayOfArrays.length === 0 ) {
+    return missingGap;
+  }
+
+  let hollowArray = arrayOfArrays.some(x => x == null || !x.length);
+  if(hollowArray) {
+    return missingGap;
+  }
+  let innerArrsLength = arrayOfArrays.map(x => {
+    if(x === '[]') {
+      return 0;
+    }
+    return x.length;
+
+  }).sort((a, b) => {
+    if(a > b) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+  //console.log(innerArrsLength);
+  missingGap = innerArrsLength[0];
+  //console.log(counter);
+  for(let i = 0; i < innerArrsLength.length; i++) {
+    if(missingGap !== innerArrsLength[i]) {
+      break;
+    }
+    missingGap++;
+  }
+  return missingGap;
+}
+
+// getLengthOfMissingArray([ [ 1, 2 ], [ 4, 5, 1, 1 ], [1 ], [ 5, 6, 7, 8, 9 ]] );
+
+// returns score of Los Angeles basketball teams
+function getLosAngelesPoints(results) {
+  // your awesome code here
+  let resLA = results.filter(x => x[0].match(/^Los Angeles +\D/)).map(x => x[1].toString().split(':')).reduce((counter, x) => counter += parseInt(x[0]), 0);
+  return resLA;
+}
+
+basketballResults = [
+  ['Golden State Warriors', '559:503'],
+  ['Memphis Grizzlies', '550:511'],
+  ['Portland Trail Blazers', '527:520'],
+  ['Houston Rockets', '494:458'],
+  ['San Antonio Spurs', '469:460'],
+  ['Phoenix Suns', '523:522'],
+  ['Minnesota Timberwolves', '495:494'],
+  ['Utah Jazz', '399:402'],
+  ['Sacramento Kings', '420:431'],
+  ['Denver Nuggets', '646:658'],
+  ['Los Angeles Clippers', '382:422'],
+  ['Dallas Mavericks', '492:513'],
+  ['Los Angeles Lakers', '641:637'],
+  ['Oklahoma City Thunder', '315:318'],
+  ['New Orleans Pelicans', '433:454']
+];
+
+//getLosAngelesPoints(basketballResults);
+
