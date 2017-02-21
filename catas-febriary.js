@@ -642,3 +642,11 @@ basketballResults = [
 
 //getLosAngelesPoints(basketballResults);
 
+
+function reverseWords(str){
+  // reverse those words
+  return str.split(' ').reverse().join(' ');
+}
+
+// reverseWords("yoda doesn't speak like this" );
+
