@@ -650,3 +650,13 @@ function reverseWords(str){
 
 // reverseWords("yoda doesn't speak like this" );
 
+
+//let reg = "<div>test</div>".replace(/(<([^>]+)>)/g, ""); // remove all html tags
+
+// delete all vowels in string
+function disemvowel(str) {
+  return str.replace(/a|e|i|o|u/gi, '');
+}
+
+// disemvowel('This website is for losers LOL!');
+
