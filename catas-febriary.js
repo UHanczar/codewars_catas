@@ -660,3 +660,19 @@ function disemvowel(str) {
 
 // disemvowel('This website is for losers LOL!');
 
+
+// split array according to second parameter number and add it to new array
+function makeParts(arr, chunkSize) {
+  let res = [];
+  let part = [];
+  for(let i = 0; i < arr.length; i++) {
+    part = arr.splice(0, chunkSize);
+    res.push(part);
+  }
+  if(arr.length) {
+    res.push(arr);
+  }
+  return res;
+}
+
+// makeParts([1,2,3,4,5], 2);
