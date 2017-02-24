@@ -676,3 +676,67 @@ function makeParts(arr, chunkSize) {
 }
 
 // makeParts([1,2,3,4,5], 2);
+
+// returns numbers, which s3 divides s1,s2 and their sum
+function multiples(s1,s2,s3){
+  let arr = [];
+  let common;
+  for(let i = 0; i <= s3; i++) {
+    if(i % s1 === 0 && i % s2 === 0)
+      arr.push(i);
+  }
+  arr.shift();
+  return arr;
+}
+
+// multiples(26, 10, 3548);
+
+// convert number in any base cistem
+function numberToString(n, base) {
+  let result = '';
+  let sign = '';
+  if(n < 0) {
+    sign = '-';
+    n = -n;
+  }
+  do {
+    result  += String(n % base);
+    n = Math.floor(n /= base);
+    //console.log(result);
+    //console.log(n);
+  } while(n > 0);
+  return sign + result;
+}
+
+// numberToString(13, 2);
+
+
+
+//copy array two times
+function partlist(arr) {
+  let transArr = [].concat(arr);
+  let endArr = [].concat([arr], [transArr]);
+  return endArr;
+}
+
+// partlist(["I", "wish", "I", "hadn't", "come"]);
+
+//receiving 'Hello, World' not from String
+const helloWorld = () => String.fromCharCode(72, 101, 108, 108, 111, 44, 32, 87, 111, 114, 108, 100, 33);
+
+
+// creating an array from min to max
+
+function generateIntegers(m, n) {
+  let counter = [];
+  let max = n;
+  for(let i = m; i <=n; i++) {
+
+    counter.push(i);
+
+
+  }
+  return counter;
+}
+
+//generateIntegers(2, 5);
