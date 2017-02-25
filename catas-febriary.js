@@ -740,3 +740,52 @@ function generateIntegers(m, n) {
 }
 
 //generateIntegers(2, 5);
+
+// creacte function, that divide number on 100, 50, 20 dollar bills
+function withdraw(n) {
+  //coding and coding..
+  console.log(n);
+  let res = [];
+  let hundred = 0;
+  let fifteen = 0;
+  let twenty = 0;
+
+  if(n >= 100) {
+    while(n >= 100) {
+      hundred++;
+      n -= 100;
+    }
+  }
+
+  if(n < 100 && n % 20 === 0) {
+    while(n >= 20) {
+      twenty++;
+      n -= 20;
+    }
+  } else if(n % 50 === 0) {
+    fifteen++;
+    n -= 50;
+  } else if(n === 70 || n === 90) {
+    console.log(n);
+    fifteen++;
+    n -= 50;
+    while(n >= 20) {
+      twenty++;
+      n -= 20;
+    }
+  } else {
+    hundred--
+    fifteen++;
+    n += 50;
+    while(n >= 20) {
+      twenty++;
+      n -= 20;
+    }
+  }
+
+  res.push(hundred, fifteen, twenty);
+
+  return res;
+}
+
+// withdraw(250);
