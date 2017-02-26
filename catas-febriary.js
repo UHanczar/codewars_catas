@@ -805,3 +805,34 @@ function findUniq(arr) {
 }
 
 // findUniq([ 0, 1, 0 ]);
+
+// find longest slogans
+function theBiggestSearchKeys(...str) {
+  //your code here
+  let res;
+  if(!str.length) {
+    res = '\'\'';
+  } else {
+    console.log(str);
+    let arr = str.map(x => x.length).sort((a, b) => {
+      if(a > b) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+    console.log(arr);
+    let maxLength = arr[arr.length - 1];
+    res = str.sort((a, b) => {
+      if(a > b) {
+        return 1;
+      } else {
+        return -1;
+      }
+    }).filter(x => x.length === maxLength).map(x => '\'' + x + '\'').join(', ');
+  }
+
+  return res;
+}
+
+// theBiggestSearchKeys("coding", "sorting", "tryruby");
