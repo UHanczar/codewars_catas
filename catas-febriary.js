@@ -789,3 +789,19 @@ function withdraw(n) {
 }
 
 // withdraw(250);
+
+
+// find unique number in array
+function findUniq(arr) {
+  // do magic
+  let res;
+  arr.sort();
+  if(arr[0] !== arr[1]) {
+    res = arr[0];
+  } else {
+    res = arr[arr.length - 1];
+  }
+  return res;
+}
+
+// findUniq([ 0, 1, 0 ]);
