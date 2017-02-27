@@ -836,3 +836,19 @@ function theBiggestSearchKeys(...str) {
 }
 
 // theBiggestSearchKeys("coding", "sorting", "tryruby");
+
+// find length of shortest words in array
+function findShort(s){
+  let res = 0;
+  let arr = s.split(' ').map(x => x.length).sort((a,b) => {
+    if(a > b) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+  res = arr[0];
+  return res;
+}
+
+// findShort("bitcoin take over the world maybe who knows perhaps");
