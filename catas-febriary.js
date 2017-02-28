@@ -852,3 +852,11 @@ function findShort(s){
 }
 
 // findShort("bitcoin take over the world maybe who knows perhaps");
+
+// remove all after #
+function removeUrlAnchor(url){
+  // TODO: complete
+  return url.replace(/#.+/g, '');
+}
+
+// removeUrlAnchor('www.codewars.com#about');
