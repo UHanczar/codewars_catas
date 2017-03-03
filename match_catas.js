@@ -54,3 +54,68 @@ function alternateCase(s) {
 }
 
 // alternateCase("Hello World");
+
+// find sum of lib chapters
+function stockList(listOfArt, listOfCat){
+  let res = [];
+  let subRes = [];
+  let arrToStr = [];
+  let sum = 0;
+  let arr = listOfArt.map(x => {
+    return x.split(' ').filter(x => x.length);
+  });
+  //console.log(arr);
+  for(let i = 0; i < listOfCat.length; i++) {
+    for(let j = 0; j < arr.length; j++) {
+      // console.log(listOfCat[i], arr[j]);
+      if(listOfCat[i] === arr[j][0][0]) {
+        subRes.push(listOfCat[i], arr[j][1]);
+      }
+    }
+
+    if(!subRes.length) {
+      subRes.push(listOfCat[i], 0);
+    }
+
+    res.push(subRes);
+    subRes = [];
+  }
+
+  // console.log(res);
+  let checkForRes = res.every(x => x[1] == '0');
+
+  if(checkForRes) {
+    res = '';
+  } else {
+    res = res.map(x => {
+      if(x.length < 3) {
+        if(x[1][0] === '0') {
+          x[1] = x[1].substr(1, x[1].length);
+        }
+        arrToStr = '(' + x[0] + ' : ' + x[1] + ')';
+      } else {
+        for(let i = 1; i < x.length; i += 2) {
+          //console.log(x[i]);
+          // console.log(x[i][0]);
+          if(x[i][0] === 0) {
+            x[i] = x[i].substr(1, x[i].length);
+          }
+          sum += parseInt(x[i]);
+
+        }
+        arrToStr = '(' + x[0] + ' : ' + sum + ')';
+        sum = 0;
+      }
+
+      return arrToStr;
+    });
+
+    res = res.join(' - ');
+  }
+
+  return res;
+}
+
+// let b = ["ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"];
+// let c = ["A", "B"];
+// stockList(b, c);
