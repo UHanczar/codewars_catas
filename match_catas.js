@@ -23,3 +23,34 @@ function charCheck(text, max, spaces){
 }
 
 // charCheck("As Deputy Base Manager on Phobos for five Martian years, I have significant relevant experience.", 90, false);
+
+
+// return "Yes" if bool === true & "No" if bool === false
+function boolToWord( bool ){
+  //...
+  return bool ? 'Yes' : 'No';
+}
+
+// boolToWord(true);
+
+// return sum of array values
+function sumR(x) {
+  let count = x.length - 1;
+  let sum = 0;
+  while(count >= 0) {
+    sum += x[count];
+    count--;
+  }
+  return sum;
+}
+
+// sumR([1,1,1]);
+
+// make lowercase letters in string uppercase and opposite
+function alternateCase(s) {
+  let res = s.split('').map(x => x.charCodeAt() < 92 && x.charCodeAt() !== 33 ? String.fromCharCode(x.charCodeAt() + 32) : String.fromCharCode(x.charCodeAt() - 32)).join('').replace(/@/g, ' ').replace(/\u0001/g, '!');
+
+  return res;
+}
+
+// alternateCase("Hello World");
