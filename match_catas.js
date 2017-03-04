@@ -230,3 +230,34 @@ function reverseLetter(str) {
 }
 
 // reverseLetter("ultr53o?n");
+
+// find if it can be triangle
+function isTriangle(a,b,c) {
+  return a < b + c && b < c + a && c < a + b; // ? true : false;
+}
+
+// isTriangle(7,2,2);
+
+// return lines from viral song "Apple-Pen")
+function singSong(a,b){
+  //coding and coding..
+  let res = '';
+
+  if(a === b) {
+    res = `I have two ${a}s.`;
+  } else if(b === undefined) {
+    if(a[0].match(/[a,e,i,o,u]/i)) {
+      res = `I have an ${a}.`;
+    } else {
+      res = `I have a ${a}.`;
+    }
+  } else if(b !== undefined) {
+    let firstLetter = a.substr(0,1).toUpperCase();
+    a = a.replace(a[0], firstLetter);
+    console.log(a);
+    res = `Uhh! ${a}-${b}!`
+  }
+  return res;
+}
+
+// singSong("puzzle","kata");
