@@ -119,3 +119,76 @@ function stockList(listOfArt, listOfCat){
 // let b = ["ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"];
 // let c = ["A", "B"];
 // stockList(b, c);
+
+// repair date format
+function timeCorrect(timestring) {
+  console.log(timestring);
+  let res;
+  let reg = /\w{2}:\w{2}:\w{2}/g;
+
+  if(!timestring) {
+    res = timestring;
+    return res;
+  }
+
+  let checkForNums = timestring.split(':');
+  let thrueNum = checkForNums.every(x => !isNaN(x));
+
+  if(!thrueNum) {
+    res = null;
+    return res;
+  }
+
+  if(!timestring.match(reg)) {
+    res = null;
+    return res;
+  }
+
+  timestring = timestring.split(':').reverse();
+
+  if(timestring[0] >= 60) {
+    let restTime = timestring[0] % 60;
+    if(restTime === 0) {
+      restTime = 0;
+    }
+    let timeToPass = parseInt(timestring[0] / 60);
+    timestring[1] = parseInt(timestring[1]) + parseInt(timeToPass);
+    if(restTime < 10) {
+      restTime = '0' + restTime;
+    }
+    timestring[0] = restTime;
+  }
+
+  if(timestring[1] >= 60) {
+    let restTime = timestring[1] % 60;
+    if(restTime === 0) {
+      restTime = 0;
+    }
+    let timeToPass = parseInt(timestring[1] / 60);
+    timestring[2] = parseInt(timestring[2]) + parseInt(timeToPass);
+    if(restTime < 10) {
+      restTime = '0' + restTime;
+    }
+    timestring[1] = restTime;
+  }
+
+  if(timestring[2] >= 24) {
+    let restTime = timestring[2] % 24;
+    if(restTime === 0) {
+      restTime = '0';
+    }
+
+    if(restTime < 10) {
+      restTime = '0' + restTime;
+    }
+
+    timestring[2] = restTime;
+  }
+
+
+  res = timestring.reverse().join(':');
+
+  return res;
+}
+
+// timeCorrect("52:01:01");
