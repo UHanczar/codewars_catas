@@ -192,3 +192,41 @@ function timeCorrect(timestring) {
 }
 
 // timeCorrect("52:01:01");
+
+// create Caesar cipher function
+function rot13(message) {
+  //your code here
+  console.log(message);
+  let res = message.split('').map(x => {
+    if (x.charCodeAt() > 64 && x.charCodeAt() < 91) {
+      x = x.charCodeAt() + 13;
+      if (x > 91) {
+        x = 64 + (x - 90);
+      }
+      x = String.fromCharCode(x);
+      return x;
+    } else if (x.charCodeAt() > 96 && x.charCodeAt() < 123) {
+      x = x.charCodeAt() + 13;
+      if (x > 122) {
+        x = 97 + (x - 123);
+      }
+      x = String.fromCharCode(x);
+      return x;
+    } else {
+      return x;
+    }
+
+  });
+  res = res.join('');
+  return res;
+}
+
+// rot13("test");
+
+// create function, that return reversed string excluding any simbol except letters
+function reverseLetter(str) {
+  //coding and coding..
+  return str.split('').filter(x => x.charCodeAt() > 96 && x.charCodeAt() < 123).reverse().join('');
+}
+
+// reverseLetter("ultr53o?n");
