@@ -291,3 +291,24 @@ function decipher(cipher) {
 }
 
 // decipher("10197115121");
+
+// return array without index keys
+function arrWithoutKeys(array, keys) {
+  let counter = 0;
+  console.log(keys, res);
+
+  if(typeof keys !== 'number') {
+    while(counter < keys.length) {
+      array.splice(keys[counter], 1, '3');
+      counter = counter+1;
+    }
+  } else {
+    console.log(keys);
+    array.splice(keys, 1, '3');
+  }
+
+  array = array.filter(x => x !== '3');
+  return array;
+}
+
+// arrWithoutKeys(['a', 'b', 'c', 'd', 'e'], [1,3]);
