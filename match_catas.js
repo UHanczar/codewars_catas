@@ -261,3 +261,33 @@ function singSong(a,b){
 }
 
 // singSong("puzzle","kata");
+
+// decipher chars from charcodes
+function decipher(cipher) {
+  //coding and coding..
+  let res = [];
+  let char = [];
+  let arr = cipher.split('');
+
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] === '1') {
+      char = arr.slice(i, i+3);
+      i = i + 2;
+      res.push(char);
+    } else if(arr[i] === '9') {
+      char = arr.slice(i, i+2);
+      i = i + 1;
+      res.push(char);
+    }
+  }
+
+  res = res.map(x => {
+    x = x.join('');
+    x = String.fromCharCode(x);
+    return x;
+  }).join('');
+
+  return res;
+}
+
+// decipher("10197115121");
