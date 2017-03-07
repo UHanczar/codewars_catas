@@ -312,3 +312,86 @@ function arrWithoutKeys(array, keys) {
 }
 
 // arrWithoutKeys(['a', 'b', 'c', 'd', 'e'], [1,3]);
+
+function passwordGen(){
+  //your code here
+  let passwordLength;
+  let password = '';
+  let randomChar = '';
+  let res = [];
+
+  function getRandomArbitrary(min, max) {
+    return Math.round(Math.random() * (max - min) + min);
+  }
+
+  passwordLength = getRandomArbitrary(6, 20);
+  // console.log(passwordLength);
+
+  for(let i = 0; i < passwordLength; i++) {
+    if(i % 3 === 0) {
+      randomChar = String.fromCharCode(getRandomArbitrary(97, 122));
+      password += randomChar;
+    } else if(i % 2 === 1) {
+      randomChar = String.fromCharCode(getRandomArbitrary(49, 57));
+      password += randomChar;
+    } else if(i % 2 === 0) {
+      randomChar = String.fromCharCode(getRandomArbitrary(65, 90));
+      password += randomChar;
+    }
+
+  }
+
+  // console.log(password);
+
+  password = password.split('');
+  while(password.length) {
+    let num = getRandomArbitrary(0, password.length);
+    let char = password.splice(num, 1);
+    res.push(char);
+  }
+
+  res = res.join('');
+
+  return res;
+}
+
+// passwordGen();
+
+// find double 'g' in string
+function gHappy(str) {
+  //coding and coding..
+  str = str.split('');
+  let flag;
+
+  if(!str.some(x => x === 'g')) {
+    flag = true;
+  }
+
+  let lastG = str.lastIndexOf('g');
+  console.log(lastG - 1);
+  for(let i = 0; i <= lastG - 1; i++) {
+    if(str[i] === 'g') {
+      if(str[i] !== str[i+1] && str[i] !== str[i-1]) {
+        flag = false;
+        return flag;
+      } else if(str[i] === str[i+1] || str[i] === str[i-1]) {
+        flag = true;
+      }
+    }
+  }
+
+  return flag;
+}
+
+// gHappy("gg0gg3gg0gg");
+
+
+// return middle character if s.length % 2 === 0 or two characters
+function getMiddle(s) {
+  //Code goes here!
+  let pivot = '';
+  s.length % 2 === 0 ? pivot = s.substr(Math.floor((s.length / 2) - 1), 2) : pivot = s.substr(Math.floor(s.length / 2), 1);
+  return pivot;
+}
+
+// getMiddle("middle");

@@ -86,3 +86,26 @@ const merge = (left, right) => {
 };
 
 // mergeSort([10,5,3,8,2,6,4,7,9,1]);
+
+// quich sort
+const quickSort = nums => {
+  if(nums.length <=1) {
+    return nums;
+  }
+
+  let pivot = nums[nums.length - 1];
+  let leftArr = [];
+  let rightArr = [];
+
+  for(let i = 0; i < nums.length - 1; i++) {
+    if(nums[i] < pivot) {
+      leftArr.push(nums[i]);
+    } else {
+      rightArr.push(nums[i]);
+    }
+  }
+
+  return [...quickSort(leftArr), pivot, ... quickSort(rightArr)];
+};
+
+quickSort([10, 8, 2, 1, 6, 3, 9, 4, 7, 5]);
