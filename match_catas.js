@@ -395,3 +395,22 @@ function getMiddle(s) {
 }
 
 // getMiddle("middle");
+
+// functin return number which appears odd nuber of times in array
+// function findOdd(arr) {
+  //happy coding!
+  let res;
+  for(let i = 0; i < arr.length; i++) {
+    let num = arr[i];
+    console.log(num);
+    let arrOfNums = arr.filter(x => x === num);
+    console.log(arrOfNums);
+    if(arrOfNums.length % 2 === 1) {
+      res = arrOfNums[0];
+      return res;
+    }
+  }
+  return res;
+}
+
+// findOdd([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5]);
