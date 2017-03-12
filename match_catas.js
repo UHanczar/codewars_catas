@@ -397,7 +397,7 @@ function getMiddle(s) {
 // getMiddle("middle");
 
 // functin return number which appears odd nuber of times in array
-// function findOdd(arr) {
+function findOdd(arr) {
   //happy coding!
   let res;
   for(let i = 0; i < arr.length; i++) {
@@ -414,3 +414,82 @@ function getMiddle(s) {
 }
 
 // findOdd([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5]);
+
+
+// return words in string, organized according to their ASCII chars sum, or length, or alphabetical weight + sort chars in every word
+function revamp(s) {
+  //coding and coding..
+  let res = s.split(' ').map(x => x.split('').sort());
+  let arr = [];
+  res.map(x => {
+    let sumOfChars = x.reduce((counter, x) => counter += x.charCodeAt(), 0);
+    console.log(sumOfChars);
+    x = x.join('');
+    arr.push({x: x, sum: sumOfChars});
+  });
+  arr = arr.sort((a, b) => {
+    if(a.sum === b.sum) {
+      if(a.x.length === b.x.length) {
+        if(a.x[0] > b.x[0]) {
+          return 1;
+        } else {
+          return -1;
+        }
+      } else if(a.x.length > b.x.length) {
+        return 1;
+      } else {
+        return - 1;
+      }
+    } else if(a.sum > b.sum) {
+      return 1;
+    } else if(a.sum < b.sum) {
+      return - 1;
+    }
+  }).map(x => x.x).join(' ');
+
+  return arr;
+}
+
+// revamp("batman is bruce bruec wayne");
+
+
+// find max and min sum of nums in two arrays
+function s(a, b) {
+  let res = [];
+  let firstArg = 0;
+  let tempArg = 0;
+
+  for(let i = 0; i < a.length; i++) {
+    for(let j = 0; j < b.length; j++) {
+      if(a[i] > b[j]) {
+        tempArg = a[i] - b[j];
+      } else {
+        tempArg = b[j] - a[i];
+      }
+      if(tempArg > firstArg) {
+        firstArg = tempArg;
+      }
+    }
+  }
+
+  res.push(firstArg);
+
+  let secArg = firstArg;
+  for(let i = 0; i < a.length; i++) {
+    for(let j = 0; j < b.length; j++) {
+      if(a[i] > b[j]) {
+        tempArg = a[i] - b[j];
+      } else {
+        tempArg = b[j] - a[i];
+      }
+      if(tempArg < secArg) {
+        secArg = tempArg;
+      }
+    }
+  }
+
+  res.push(secArg);
+  return res;
+}
+
+// s([3,10,5],[20,7,15,8]);
