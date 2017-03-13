@@ -493,3 +493,11 @@ function s(a, b) {
 }
 
 // s([3,10,5],[20,7,15,8]);
+
+// find how many hours and minuts in seconds
+function toTime(seconds) {
+//code here
+  return seconds >= 3600 ? `${parseInt(seconds / 3600)} hour(s) and ${parseInt((seconds % 3600) / 60)} minute(s)` : `0 hour(s) and ${parseInt(seconds / 60)} minute(s)`;
+}
+
+// toTime(3600);

@@ -59,4 +59,28 @@ function largestOfFour(arr) {
   return res;
 }
 
-largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+// largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+
+
+// find if end of string corresponds with target
+function confirmEnding(str, target) {
+  // "Never give up and good luck will find you."
+  // -- Falcor
+  return str.substr(-target.length) === target;
+}
+
+// confirmEnding("Bastian", "n");
+
+// duplicate str num times
+function repeatStringNumTimes(str, num) {
+  // repeat after me
+  let counter = 0;
+  let res = '';
+  while(counter < num) {
+    res += str;
+    counter++;
+  }
+  return res;
+}
+
+// repeatStringNumTimes("abc", 3);
