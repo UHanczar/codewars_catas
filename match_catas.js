@@ -413,6 +413,25 @@ function findOdd(arr) {
   return res;
 }
 
+// or
+function findOdd1(arr) {
+  //happy coding!
+  let res = arr.sort((a, b) => a - b);
+  let counter = 1;
+  for(let i = 0; i < res.length; i++) {
+    if(res[i] === res[i+1]) {
+      counter++
+    } else {
+      if(counter % 2 === 1) {
+        return res[i]
+      } else {
+        counter = 1;
+      }
+    }
+  }
+  return 0;
+}
+
 // findOdd([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5]);
 
 
@@ -501,3 +520,90 @@ function toTime(seconds) {
 }
 
 // toTime(3600);
+
+// check string weather its symbols are unique or not
+function hasUniqueChars(str){
+  // ...
+  let res = str.split('').sort((a, b) => {
+    if(a > b) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+  console.log(res);
+  for(let i = 0; i < res.length; i++) {
+    if(res[i] === res[i+1]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+// hasUniqueChars("  nAa");
+
+// find elements in array
+function secretMap(sp){
+  // count the pirates and the piles of gold
+  let countOfPirates = sp.filter(x => x.toString() === 'pirate').length;
+  let countOfGold = sp.filter(x => x.toString() === 'pile_of_gold').length;
+  console.log(countOfPirates);
+  return `count of pirates: ${countOfPirates} and the count of gold piles: ${countOfGold}`;
+
+}
+
+let map = [
+  ["spain"], [], [], [], ["pirate"], ["pirate"],
+  [], [], [], [], [], [],
+  [], [], ["pirate"], [], ["pirate"], ["pirate"],
+  [], [], [], [], ["pirate"], ["pirate"],
+  [], [], [], ["pile_of_gold"], [], [],
+  [], [], [], ["pile_of_gold"], ["pirate"], [],
+];
+
+// secretMap(map);
+
+// find res number of tree growth
+function growingPlant(upSpeed, downSpeed, desiredHeight) {
+  //coding and coding..
+  let growth = 0;
+  let res = 0;
+
+  while(growth < desiredHeight + upSpeed) {
+    res +=1;
+    growth += upSpeed;
+    if(growth >= desiredHeight) {
+      return res;
+    }
+    growth -= downSpeed;
+  }
+
+  return res;
+
+}
+
+//growingPlant(70,48,88);
+
+// make camelCase strings
+function toCamelCase(str){
+  let separator = '';
+  str.match('-') ? separator = '-' : separator = '_';
+
+  const res = str.split(separator).splice(0, 1);
+
+  let restArr = str.split(separator).splice(1);
+
+  restArr = restArr.map(x => {
+    const firstChar = x.substr(0, 1).toUpperCase();
+    x = x.split('');
+    x.shift();
+    x.unshift(firstChar);
+    x = x.join('');
+    return x;
+  });
+
+  return res.concat(restArr).join('');
+}
+
+// toCamelCase("the_stealth_warrior");

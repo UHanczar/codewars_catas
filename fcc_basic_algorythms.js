@@ -84,3 +84,40 @@ function repeatStringNumTimes(str, num) {
 }
 
 // repeatStringNumTimes("abc", 3);
+
+// truncate string
+function truncateString(str, num) {
+  // Clear out that junk in your trunk
+  if(num <= 3) {
+    return str.split('').splice(0, num).join('') + '...';
+  }
+
+  return str.length > 3 && str.length > num ? str.split('').splice(0, num - 3).join('') + '...' : str.split('').splice(0, num).join('');
+}
+
+// truncateString("A-tisket a-tasket A green and yellow basket", 11);
+
+
+// divide array according to size number
+function chunkArrayInGroups(arr, size) {
+  // Break it up.
+  let res = [];
+  for(let i = 0; i < arr.length; i += size) {
+    let tempArr = arr.slice(i, i+size);
+    res.push(tempArr);
+    tempArr = [];
+  }
+  return res;
+}
+
+// chunkArrayInGroups(["a", "b", "c", "d"], 2);
+
+// return array after deleting indexes from its head according to howMany
+function slasher(arr, howMany) {
+  // it doesn't always pay to be first
+  arr.splice(0, howMany);
+  return arr;
+}
+
+// slasher([1, 2, 3], 2);
+
