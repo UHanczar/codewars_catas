@@ -607,3 +607,80 @@ function toCamelCase(str){
 }
 
 // toCamelCase("the_stealth_warrior");
+
+// several function to get data
+const squares = n => {
+  let res = [];
+  let counter = 0;
+  let item = 1;
+  let add = 3;
+
+  while(counter < n) {
+    res.push(item);
+    item += add;
+    add += 2;
+    counter ++;
+  }
+  return res;
+};
+
+// squares(5);
+
+const range = (n, start, step) => {
+  let res = [];
+  let counter = 0;
+  let item = start;
+  while(counter < n) {
+    res.push(item);
+    item += step;
+    counter++;
+  }
+  return res;
+};
+
+// range(6, 3, 2);
+
+const random = (n, min, max) => {
+  let res = [min, max];
+  let counter = 0;
+
+  while(counter < n - 2) {
+    res.push(parseInt(Math.random() * (max - min) + min));
+    counter++;
+  }
+  return res;
+};
+
+// random(4, 5, 10);
+
+const primes = n => {
+  let res = [];
+  let prime = 1;
+  let counter = 0;
+
+  function checkPrime(number) {
+    let count = 1;
+    let flag = true;
+    while(count < number - 1) {
+      count++;
+      let isPrime = number % count === 0;
+      if(isPrime) {
+        console.log(r);
+        flag = false;
+      }
+
+    }
+    return flag;
+  }
+
+  while(counter < n) {
+    prime++;
+    if(checkPrime(prime)) {
+      res.push(prime);
+      counter++;
+    }
+  }
+  return res;
+};
+
+// primes(6);

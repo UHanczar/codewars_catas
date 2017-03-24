@@ -121,3 +121,55 @@ function slasher(arr, howMany) {
 
 // slasher([1, 2, 3], 2);
 
+// find if all letters from one string have their pairs in another one
+function mutation(arr) {
+  let res;
+  let checkArr = arr.splice(1, 1).toString().toLowerCase().split('');
+  arr = arr.toString().toLowerCase();
+  let counter = 0;
+  while(counter < checkArr.length) {
+    if(arr.indexOf(checkArr[counter]) !== -1) {
+      counter++;
+      res = true;
+    } else {
+      res = false;
+      break;
+    }
+  }
+
+  return res;
+}
+
+// mutation(["hello", "Hello"]);
+
+// return not false values
+function bouncer(arr) {
+  // Don't show a false ID to this bouncer.
+  let res = arr.filter(x => x);
+  return res;
+}
+
+// bouncer([7, "ate", "", false, 9]);
+
+// find and delete all values corresponds to args
+function destroyer(arr) {
+  // Remove all the values
+  let args = [].slice.call(arguments).splice(1);
+  let res = [];
+  for(let i = 0; i < args.length; i++) {
+    arr = arr.filter(x => x !== args[i]);
+  }
+
+  return arr;
+}
+
+// destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+
+// find index of num in array
+function getIndexToIns(arr, num) {
+  // Find my place in this sorted array.
+  arr = [...arr, num].sort((a, b) => a - b);
+  return arr.indexOf(num);
+}
+
+// getIndexToIns([40,10, 30, 60], 65);
