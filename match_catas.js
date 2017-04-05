@@ -684,3 +684,30 @@ const primes = n => {
 };
 
 // primes(6);
+
+// find wether array is smooth
+function isSmooth(arr) {
+  console.log(arr);
+  //coding and coding..
+  let res = false ;
+  let length = arr.length - 1;
+  let milldeInEven = arr[arr.length /2] + arr[(arr.length / 2) - 1];
+  let middleInOdd = arr[Math.ceil(length / 2)];
+  console.log(middleInOdd);
+
+  if(arr.length % 2 === 0) {
+    if(arr[0] === arr[arr.length - 1] && arr[0] === milldeInEven) {
+      res = true;
+    }
+  } else {
+    if(arr[0] === arr[arr.length - 1] && arr[0] === middleInOdd) {
+
+      res = true;
+    }
+  }
+
+  return res;
+
+}
+
+// isSmooth([7, 2, 2, 5, 10, 7]);

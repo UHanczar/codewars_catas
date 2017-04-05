@@ -87,7 +87,7 @@ const merge = (left, right) => {
 
 // mergeSort([10,5,3,8,2,6,4,7,9,1]);
 
-// quich sort
+// quick sort
 const quickSort = nums => {
   if(nums.length <=1) {
     return nums;

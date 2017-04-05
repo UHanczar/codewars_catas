@@ -173,3 +173,20 @@ function getIndexToIns(arr, num) {
 }
 
 // getIndexToIns([40,10, 30, 60], 65);
+
+// Caecar cipher
+function rot13(str) { // LBH QVQ VG!
+  let res = str.split('').map(x => {
+    if(x.charCodeAt() > 64 && x.charCodeAt() < 91) {
+      let char = x.charCodeAt() + 13;
+      char = char > 90 ? char = 65 + (char - 91) : char;
+      x = String.fromCharCode(char);
+    }
+    return x;
+  }).join('');
+  console.log(res);
+  return res;
+}
+
+// Change the inputs below to test
+// rot13("SERR PBQR PNZC!");
