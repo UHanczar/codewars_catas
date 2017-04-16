@@ -665,7 +665,6 @@ const primes = n => {
       count++;
       let isPrime = number % count === 0;
       if(isPrime) {
-        console.log(r);
         flag = false;
       }
 
@@ -673,11 +672,10 @@ const primes = n => {
     return flag;
   }
 
-  while(counter < n) {
+  while(prime < n) {
     prime++;
     if(checkPrime(prime)) {
       res.push(prime);
-      counter++;
     }
   }
   return res;

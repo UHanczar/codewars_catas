@@ -93,3 +93,41 @@ function createPhoneNumber(numbers){
 }
 
 // createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
+
+// find time from number
+function lateRide(n) {
+  //coding and coding..
+  let res = '';
+  let hours;
+  let minutes;
+  if(n < 60) {
+    n = n.toString();
+    res = n.split('').reduce((counter, x) => counter += parseInt(x), 0);
+  } else if(n % 60 === 0) {
+    hours = parseInt(n / 60);
+    res = hours.toString().split('').reduce((counter, x) => counter += parseInt(x), 0);
+  } else {
+    hours = parseInt(n / 60);
+    minutes = (n - (hours * 60));
+    res += hours;
+    res += minutes;
+    res = res.split('').reduce((counter, x) => counter += parseInt(x), 0);
+  }
+  return res;
+}
+
+// lateRide(1439);
+
+// fing the least value which more then current index
+function arrayManip(array){
+  // your code goes here
+  let res = [];
+
+  for(let i = 0; i < array.length; i++) {
+    let tempArr = array.slice(i+1).sort((a, b) => a > b ? 1 : - 1).filter(x => x > array[i])[0];
+    tempArr ? res.push(tempArr) : res.push(-1);
+  }
+  return res;
+}
+
+// arrayManip([8, 58, 71, 18, 31, 32, 63, 92, 43, 3, 91, 93, 25, 80, 28])

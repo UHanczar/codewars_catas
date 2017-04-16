@@ -104,3 +104,193 @@ function myReplace(str, before, after) {
 
 // myReplace("A quick brown fox Jumped over the lazy dog", "Jumped", "leaped");
 
+
+// replace consonants
+function translatePigLatin(str) {
+  let vowelGrout = /[aeiou]/ig;
+  let cutChars = [];
+  let res = '';
+  if(str[0].match(vowelGrout)) {
+    res = str + 'way';
+  } else {
+    str = str.split('');
+    while(!str[0].match(vowelGrout)) {
+      cutChars = cutChars.concat(str.shift());
+    }
+    res = str.concat(cutChars, 'ay').join('');
+  }
+  return res;
+}
+
+// translatePigLatin("ccconsonant");
+
+// find missing letter
+function fearNotLetter(str) {
+  let res = '';
+  arr = str.split('');
+  let start = arr[0].charCodeAt();
+
+  for(let i = 0; i < arr.length; i++) {
+    let currentChar = arr[i].charCodeAt();
+    if(currentChar !== start) {
+      res = String.fromCharCode(currentChar - 1);
+      break;
+    }
+    start++;
+  }
+  return res;
+}
+
+// fearNotLetter("acde");
+
+
+// find unique elements in array;
+function uniteUnique(arr) {
+  let args = [].slice.call(arguments);
+  const array = [];
+
+  const res = args.reduce((counter, x) => {
+    for(let i = 0; i < x.length; i++) {
+      if(counter.indexOf(x[i]) === -1) {
+        counter.push(x[i]);
+      }
+    }
+    return counter;
+  }, []);
+  return res;
+}
+
+// uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+// replace symbols
+function convertHTML(str) {
+  // &colon;&rpar;
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+}
+
+// convertHTML("Dolce & Gabbana");
+
+// change string
+function spinalCase(str) {
+  // "It's such a fine line between stupid, and clever."
+  // --David St. Hubbins
+  let res = str.split('');
+  for(let i = 0; i < res.length; i++) {
+    if(res[i] === ' ' || res[i] === '-') {
+      res[i+1] = res[i+1].toUpperCase();
+    }
+  }
+  res = res.join('');
+  res = res.replace(/-|_| /g, '').split('').map(x => x.charCodeAt() > 64 && x.charCodeAt() < 91 ? '-'+x : x).join('').replace(/^-/, '').toLowerCase();
+  return res;
+}
+
+// spinalCase('Teletubbies say Eh-oh');
+
+
+// sum of all odd fibonnachi numbers
+function sumFibs(num) {
+  let res = [];
+  let a = 1;
+  let b = 1;
+  let c = 0;
+  res.push(a, b);
+  while(c <= num) {
+    c = a + b;
+    res.push(c);
+    a = b;
+    b = c;
+
+  }
+  res = res.splice(0, res.length - 1);
+  console.log(res);
+  return res.filter(x => x % 2 === 1).reduce((counter, x) => counter += x, 0);
+
+}
+
+// sumFibs(1000);
+
+
+// find the smallest multiplier
+function smallestCommons(arr) {
+  arr.sort((a, b) => a > b ? 1 : -1);
+  let array = [];
+
+  for(let i = arr[0]; i <= arr[1]; i++) {
+    array.push(i);
+  }
+  console.log(array);
+  // Variables needed declared outside the loops.
+  let num = 0;
+  let loop = 1;
+  let i;
+
+  // Run code while n is not the same as the array length.
+  do {
+    num = array[0] * loop * array[1];
+    console.log('num: ',num, 'loop: ', loop, 'array1: ', array[1]);
+    for (i = 2; i < array.length; i++) {
+      if (num % array[i] !== 0) {
+        break;
+      }
+    }
+
+    loop++;
+
+  } while (i !== array.length);
+
+  return num;
+}
+
+// smallestCommons([1,5]);
+
+// drop elements according to func
+function dropElements(arr, func) {
+  // Drop them elements.
+  let res = [];
+  // let num = func(arr[0]);
+  let len = arr.length;
+  for(let i = 0; i < len; i++) {
+    let num = func(arr[i]);
+    console.log('num: ', num, 'i: ', arr[i]);
+    if(func(arr[0]) === false) {
+      if(!num && i > 0) {
+        res = arr.slice(arr[i]);
+      } else if(!num) {
+        res = arr.slice(arr[i+1]);
+      }else {
+        break;
+      }
+    } else {
+      if(num) {
+        res.push(arr[i]);
+      } else {
+        break;
+      }
+    }
+  }
+
+  return res;
+}
+
+// dropElements([0, 1, 0, 1], function(n) {return n === 1;});
+
+
+// find if add elements of array have prop with value
+function truthCheck(collection, pre) {
+  // Is everyone being true?
+  let res = collection.map(x => {
+    let flag;
+    if(x.hasOwnProperty(pre) && x[pre]) {
+      console.log(x[pre])
+      flag = true;
+    } else {
+      flag = false;
+    }
+    return flag;
+  }).filter(x => !x);
+  return res.length ? false : true;
+}
+
+// truthCheck([{"user": "Tinky-Winky", "sex": "male", "age": 0}, {"user": "Dipsy", "sex": "male", "age": 3}, {"user": "Laa-Laa", "sex": "female", "age": 5}, {"user": "Po", "sex": "female", "age": 4}], "age");
+
