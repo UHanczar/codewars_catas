@@ -294,3 +294,60 @@ function truthCheck(collection, pre) {
 
 // truthCheck([{"user": "Tinky-Winky", "sex": "male", "age": 0}, {"user": "Dipsy", "sex": "male", "age": 3}, {"user": "Laa-Laa", "sex": "female", "age": 5}, {"user": "Po", "sex": "female", "age": 4}], "age");
 
+
+// to flat array
+function steamrollArray(arr) {
+  // I'm a steamroller, baby
+  return arr.reduce(function (flat, toFlatten) {
+    return flat.concat(Array.isArray(toFlatten) ? steamrollArray(toFlatten) : toFlatten);
+  }, []);
+}
+
+// steamrollArray([1, [2], [3, [[4]]]]);
+
+// return string from binary
+function binaryAgent(str) {
+  let res = str.split(' ').map(x => String.fromCharCode(parseInt(x, 2))).join('');
+  return res;
+}
+
+// binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
+
+
+// find arguments and add them
+function addTogether() {
+  let args = [].slice.call(arguments);
+
+  const checkNumber = (num) => {
+    if(typeof num !== 'number') {
+      return undefined;
+    } else {
+      return num;
+    }
+  };
+
+  if(args.length > 1) {
+    const a = checkNumber(args[0]);
+    const b = checkNumber(args[1]);
+
+    if(a === undefined || b === undefined) {
+      return undefined;
+    } else {
+      return a + b;
+    }
+  } else {
+    const a = args[0];
+    if(checkNumber(a)) {
+      return function(b) {
+        if(checkNumber(a) === undefined || checkNumber(b) === undefined) {
+          return undefined;
+        } else {
+          return a + b;
+        }
+      };
+    }
+  }
+}
+
+// addTogether(2, '3');
+

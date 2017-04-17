@@ -653,33 +653,7 @@ const random = (n, min, max) => {
 
 // random(4, 5, 10);
 
-const primes = n => {
-  let res = [];
-  let prime = 1;
-  let counter = 0;
-
-  function checkPrime(number) {
-    let count = 1;
-    let flag = true;
-    while(count < number - 1) {
-      count++;
-      let isPrime = number % count === 0;
-      if(isPrime) {
-        flag = false;
-      }
-
-    }
-    return flag;
-  }
-
-  while(prime < n) {
-    prime++;
-    if(checkPrime(prime)) {
-      res.push(prime);
-    }
-  }
-  return res;
-};
+binary_Search()
 
 // primes(6);
 
