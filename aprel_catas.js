@@ -131,3 +131,59 @@ function arrayManip(array){
 }
 
 // arrayManip([8, 58, 71, 18, 31, 32, 63, 92, 43, 3, 91, 93, 25, 80, 28])
+
+
+// flatten array
+function flattenAndSort(array) {
+  // Good luck, brave code warrior!
+  // console.log(array);
+  let res = [];
+  res = array.filter(x => x.length > 0)
+  if(res.length === 0) {
+    console.log(res);
+    res = [];
+  } else {
+    res = array.filter(x => x.length).toString().split(',').map(char => parseInt(char)).sort((a, b) => a > b ? 1 : -1);
+  }
+
+  return res;
+}
+
+// flattenAndSort([[1, 3, 5], [100], [2, 4, 6]]);
+
+// count dead ants
+deadAntCount = function(ants) {
+  // Your code here
+  let result = [];
+  console.log(ants);
+  if(!ants) {
+    return 0;
+  }
+
+  let res = ants.replace(/ant/g, '').replace(/[^\w|\s]/g, '').replace(/\s/g, '');
+  console.log('res: ', res);
+  let a = res.replace(/[^a]/g, '').length;
+  let n = res.replace(/[^n]/g, '').length;
+  let t = res.replace(/[^t]/g, '').length;
+  result.push(a, n, t);
+  result = result.sort();
+
+  return result[result.length - 1];
+};
+
+// deadAntCount("ant ant .... a nt");
+
+// count number of times to add digits of number to make it simple
+function digitDegree(n) {
+  //coding and coding..
+  let counter  = 0;
+  while(n > 9) {
+    n = n.toString().split('').reduce((counter, x) => counter + parseInt(x), 0);
+    counter++;
+    console.log(n);
+  }
+
+  return counter;
+}
+
+// digitDegree(100);

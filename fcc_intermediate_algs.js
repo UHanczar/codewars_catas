@@ -351,3 +351,43 @@ function addTogether() {
 
 // addTogether(2, '3');
 
+// select cursed names
+function select(memory){
+  let arrOfCursed = [];
+  let cursedNames = [];
+  let res = memory.split(', ')
+
+  for(let i = 0; i < res.length; i++) {
+    if(res[i][0] === '!') {
+      if(res[i+1] !== undefined) {
+        if(res[i+1][0] === '!') {
+          cursedNames = res.slice(i, i+1);
+          // console.log(cursedNames);
+          arrOfCursed = arrOfCursed.concat(cursedNames);
+        } else if(res[i+1][0] !== '!') {
+          cursedNames = res.slice(i, i+2);
+          // console.log(cursedNames);
+          arrOfCursed = arrOfCursed.concat(cursedNames);
+        }
+      } else {
+        cursedNames = res[i];
+        arrOfCursed = arrOfCursed.concat(cursedNames);
+      }
+    }
+  }
+
+  arrOfCursed = arrOfCursed.map(x => x[0] === '!' ? x.substr(1) : x);
+  // console.log(arrOfCursed);
+
+  res = res.map(x => x[0] === '!' ? x.substr(1) : x).map(x => {
+    if(arrOfCursed.indexOf(x) !== -1) {
+      x = '';
+    }
+    return x;
+  }).filter(x => x !== '').join(', ');
+
+  return res;
+}
+
+// select("!Eleena Daru, !Arr, Obi-Wan Kenobi, Eleena Daru, !Jar-Jar Binks");
+
