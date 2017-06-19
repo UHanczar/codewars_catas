@@ -63,3 +63,56 @@ function comes_after(str,l) {
 }
 
 // comes_after("king kUnta is the sickest rap song ever kNown k!",'k');
+
+// return multi-dimentional array from 0 to x in each arr
+function counterEffect(hitCount) {
+  //do your thing
+  let res = [];
+  let arr = hitCount.split('').map(x => {
+    let tempArr = [];
+    for(let i = 0; i <= parseInt(x); i++) {
+      tempArr.push(i);
+    }
+    res.push(tempArr);
+    tempArr = [];
+  });
+
+  return res;
+}
+
+// counterEffect("1250");
+
+// change all dublicated letters
+function reverseCase(string) {
+//...
+  console.log(string);
+  let res = string.split('');
+  let ind = [];
+  for (let i = 0; i < res.length; i++) {
+    if (res[i] === res[i + 1]) {
+      ind.push(i);
+      ind.push(i + 1);
+      i += 1;
+    } else if (res[i] === res[i - 1] && res[i] !== res[i + 1]) {
+      ind.push(i)
+    }
+
+  }
+
+  if (ind.length === 0) {
+    return res.join('');
+  } else {
+    for (let i = 0; i < ind.length; i++) {
+      if (res[ind[i]].charCodeAt() < 92) {
+        res[ind[i]] = res[ind[i]].toLowerCase();
+      }
+      else {
+        res[ind[i]] = res[ind[i]].toUpperCase();
+      }
+    }
+
+    return res.join('');
+  }
+}
+
+// reverseCase('hello world');
