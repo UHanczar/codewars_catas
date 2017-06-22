@@ -1,0 +1,41 @@
+// IMPLEMENTING STACK
+const Stack = function() {
+  this.storage = '';
+};
+
+Stack.prototype.push = function(val) {
+  // let st = this.storage;
+  // let newArr = st === '' ? st.concat(val) : st.concat(',' + val);
+  // console.log(newArr);
+  // this.storage = newArr;
+
+  // course implementation
+  this.storage = this.storage.concat('*', val);
+};
+
+Stack.prototype.pop = function() {
+  // let st = this.storage;
+  // st = st.split('*');
+  // return st[st.length - 1];
+
+  // course implementation
+  // slice off the last characters up to '*'
+  let lastItem = this.storage.slice(this.storage.lastIndexOf('*') + 1);
+  // updating new stuck without last item
+  this.storage = this.storage.slice(0, this.storage.lastIndexOf('*'));
+  // return lastitem
+  return lastItem;
+};
+
+Stack.prototype.size = function() {
+  let stl = this.storage;
+  return stl.replace(/\w/gi, '').length;
+};
+
+const myWeekMenu = new Stack();
+console.log(myWeekMenu);
+myWeekMenu.push('bread');
+myWeekMenu.push('milk');
+console.log(myWeekMenu);
+myWeekMenu.size();
+myWeekMenu.pop();
